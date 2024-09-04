@@ -9,26 +9,6 @@ import openpyxl
 
 # Обработчик моделей
 # ------------------
-# Для корректной работы модуля нужны установленные модули python3:
-
-# - numpy
-# - pandas
-# - pickle 
-# - scikit-learn
-
-# На вход поступает таблица в формате .xlsx с определенным образом 
-# проименованными колонками, как они находились в таблице, которую я получил
-# 
-# Имена колонок:
-# --------------
-# ['Возраст', 'Пол', 'СД', 'Курение',
-# 'RR', 'TpTe', 'VAT', 'QTc', 'QT/TQ',
-# 'HFQRS', 'JA', 'J80A', 'TA', 'QRSenergy', 'Tenergy', 'Tpenergy',
-# 'Sbeta', 'Beta', 'QRS11energy', 'QRS12energy', 'QRS2energy', 'QRSE1',
-# 'QRSE2', 'QRSE3', 'QRSE4', 'TE1', 'TE2', 'TE3', 'TE4', 'QRSw', 'Pan',
-# 'Pan.1', 'RA', 'SA', 'Pst', 'Pfi', 'QRSst', 'QRSfi', 'Tfi', 'PpeakP',
-# 'PpeakN', 'Rpeak', 'Speak', 'Tpeak', 'Tons', 'Toffs', 'RonsF', 'RoffsF',
-# 'SDNN', 'RR.1']
 
 # +----------------------------------------------------------------------------
 
