@@ -2,7 +2,8 @@
 
 import numpy as np
 import pandas as pd
-import joblib
+import pickle
+import openpyxl
 
 # +----------------------------------------------------------------------------
 
@@ -12,7 +13,7 @@ import joblib
 
 # - numpy
 # - pandas
-# - joblib 
+# - pickle 
 # - scikit-learn
 
 # На вход поступает таблица в формате .xlsx с определенным образом 
@@ -72,22 +73,23 @@ if __name__ == '__main__':
         X_test[col] = X_test[col] - X_test['Pst']
 
     try:
-        model_diast = joblib.load(model_diast_path)
+        model_diast = pickle.load(open(model_diast_path, 'rb'))
     except:
-        print("Ошибка при вводе пути!")
+        print("Ошибка при вводе пути модели по диастоле!")
         print("Введите верный путь или свяжитесь с разработчиком")
         model_diast_path = str(input ("Введите полный путь \
             к модели диастолической дисфункции: "))
-        model_diast = joblib.load(model_diast_path)
+        model_diast = pickle.load(open(model_diast_path, 'rb'))
 
     try:
-        model_fv = joblib.load(model_fv_path)
+        model_fv = pickle.load(open(model_fv_path, 'rb'))
     except:
-        print("Ошибка при вводе пути!")
+        print("Ошибка при вводе пути модели по ФВ!")
         print("Введите верный путь или свяжитесь с разработчиком")
         model_fv_path = str(input ("Введите полный путь \
             к модели оценки ФВЛЖ: "))
-        model_fv = joblib.load(model_fv_path)    
+        # model_fv = joblib.load(model_fv_path)
+        model_fv = pickle.load(open(model_fv_path, 'rb'))    
 
     pred_diast = model_diast.predict_proba(X_test)[:,1] 
     pred_fv = model_fv.predict_proba(X_test)[:,1]
